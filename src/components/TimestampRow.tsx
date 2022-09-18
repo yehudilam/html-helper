@@ -16,7 +16,6 @@ const TimestampRow = ({
 
   useEffect(() => {
     if(input && inputFormat && outputFormat && convert !== 0){
-      // console.log(input, inputFormat, DateTime.fromFormat(input, inputFormat), outputFormat);
 
       // todo: catch errors:
       try{
@@ -25,7 +24,7 @@ const TimestampRow = ({
         console.log(e);
       }
     }
-  }, [convert]);
+  }, [convert, input, inputFormat, output, outputFormat]);
 
   return (
     <tr>

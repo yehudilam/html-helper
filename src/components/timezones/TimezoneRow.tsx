@@ -32,7 +32,7 @@ const TimezoneRow = ({
         })
       );
     }
-  }, [convert]);
+  }, [convert, input, format, columns]);
 
   return (
     <tr>
