@@ -3,7 +3,7 @@ import React from 'react';
 const CryptoJs = (): JSX.Element => {
 
     return (
-        <div></div>
+        <div>Coming soon...</div>
     )
 };
 

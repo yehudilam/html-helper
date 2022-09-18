@@ -1,17 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Router, {ROUTER_PATH_BASE64, ROUTER_PATH_CRYPTO, ROUTER_PATH_TIMESTAMP} from "./utils/Router";
+import {Link} from "react-router-dom";
 
 function App() {
+  // console.log('<App />');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        HTML helpers
-      </header>
-
-      <main>
-
-      </main>
+    <div>
+      <Router />
     </div>
   );
 }
