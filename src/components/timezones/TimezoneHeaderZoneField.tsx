@@ -1,6 +1,5 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {useState} from 'react';
 import {Autocomplete, TextField} from "@mui/material";
-// import {DateTime, IANAZone, Zone} from "luxon";
 import {TIMEZONES} from "../../utils/Timezones";
 
 interface TimezoneHeaderZoneFieldProps{
@@ -9,21 +8,10 @@ interface TimezoneHeaderZoneFieldProps{
 }
 
 const TimezoneHeaderZoneField = ({timezone, setTimezone}: TimezoneHeaderZoneFieldProps): JSX.Element => {
-  // DateTime.
-
   const [timezones] = useState(TIMEZONES);
-
-  // console.log(Zone, IANAZone);
-  // console.log(Intl.supportedValuesOf('timeZone'));
 
   return (
     <th>
-      {/*<TextField
-        value={timezone}
-        onChange={setTimezone}
-        placeholder={}
-      />*/}
-
       <Autocomplete
         sx={{
           width: 200

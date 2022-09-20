@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {IconButton, TextField} from "@mui/material";
+import {Button, IconButton, TextField} from "@mui/material";
 import {Add} from "@mui/icons-material";
 import {DateTime} from "luxon";
 import TimezoneRow from "../components/timezones/TimezoneRow";
@@ -11,6 +11,7 @@ const Timezones = (): JSX.Element => {
   const [timezones, setTimezones] = useState<string[]>([]);
   const [rows, setRows] = useState(1);
   const [convert, setConvert] = useState(0);
+  const [now] = useState(DateTime.now());
 
   const setTimezoneValue = ({
     value, index
@@ -63,9 +64,12 @@ const Timezones = (): JSX.Element => {
           />
         </div>
 
-        <p>Time now: {DateTime.now().toFormat(DATETIME)}</p>
-
         {/* todo: current zone: */}
+      </div>
+
+      <div className="mb-2">
+        <p>Time now: {now.toFormat(DATETIME)}</p>
+        <p>Your timezone: {now.zoneName}</p>
       </div>
 
       <table className="mb-2">
@@ -105,11 +109,15 @@ const Timezones = (): JSX.Element => {
           <tr>
             <td colSpan={timezones.length + 2}>
               <div className="flex items-center">
-                <IconButton onClick={() => setRows(row => row + 1)}>
+                <IconButton
+                  onClick={() => setRows(row => row + 1)}>
                   <Add />
                 </IconButton>
 
-                <IconButton onClick={convertTimes}>Convert</IconButton>
+                <Button
+                  variant="contained"
+                  onClick={convertTimes}>Convert
+                </Button>
               </div>
             </td>
           </tr>

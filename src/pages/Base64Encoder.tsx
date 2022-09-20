@@ -19,6 +19,7 @@ const Base64Encoder = (): JSX.Element => {
         <TextField
           fullWidth
           value={input}
+          placeholder="Enter text here"
           onChange={e => setInput(e.target.value)}
         />
       </div>
