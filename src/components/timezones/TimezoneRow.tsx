@@ -17,6 +17,8 @@ const TimezoneRow = ({
   const [input, setInput] = useState('');
   const [output, setOutput] = useState<string[]>([]);
 
+  console.log('columns', columns);
+
   useEffect(() => {
     if(convert !== 0){
       setOutput(
@@ -24,6 +26,8 @@ const TimezoneRow = ({
           if(input && format){
             const local = DateTime.fromFormat(input, format);
             const rezoned = local.setZone(col);
+
+            console.log('rezoned', rezoned);
 
             return rezoned.toFormat(format);
           }
@@ -38,14 +42,16 @@ const TimezoneRow = ({
     <tr>
       <td>
         <TextField
-          placeholder="Input"
+          placeholder="Input timestamp"
           value={input}
           onChange={e => setInput(e.target.value)}
         />
       </td>
 
       {columns.map((col: string, index: number) => (
-        <td><p>{output[index]}</p></td>
+        <td key={`col-${col}-i-${index}`}>
+          <p>{output[index]}</p>
+        </td>
       ))}
 
       <td></td>
