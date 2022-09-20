@@ -4,9 +4,10 @@ import {Add} from "@mui/icons-material";
 import {DateTime} from "luxon";
 import TimezoneRow from "../components/timezones/TimezoneRow";
 import TimezoneHeaderZoneField from "../components/timezones/TimezoneHeaderZoneField";
+import {DATETIME} from "../utils/TimestampFormat";
 
 const Timezones = (): JSX.Element => {
-  const [inputFormat, setInputFormat] = useState('yyyy-MM-dd HH:mm:ss');
+  const [inputFormat, setInputFormat] = useState(DATETIME);
   const [timezones, setTimezones] = useState<string[]>([]);
   const [rows, setRows] = useState(1);
   const [convert, setConvert] = useState(0);
@@ -51,12 +52,20 @@ const Timezones = (): JSX.Element => {
         </p>
       </div>
 
-      <div className="mb-2">
-        <TextField
-          placeholder="Input Format"
-          value={inputFormat}
-          onChange={(e) => setInputFormat(e.target.value)}
-        />
+      <div className="flex items-center mb-2">
+        <p className="mr-2">Format: </p>
+
+        <div className="mr-2">
+          <TextField
+            placeholder="Input Format"
+            value={inputFormat}
+            onChange={(e) => setInputFormat(e.target.value)}
+          />
+        </div>
+
+        <p>Time now: {DateTime.now().toFormat(DATETIME)}</p>
+
+        {/* todo: current zone: */}
       </div>
 
       <table className="mb-2">
@@ -68,8 +77,8 @@ const Timezones = (): JSX.Element => {
               <TimezoneHeaderZoneField
                 key={`header-zone-${index}`}
                 timezone={timezone}
-                setTimezone={e => setTimezoneValue({
-                  value: `${e?.target?.value}` ?? '',
+                setTimezone={newValue => setTimezoneValue({
+                  value: newValue,
                   index,
                 })}
               />
