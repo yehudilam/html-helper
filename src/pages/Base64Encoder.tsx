@@ -25,7 +25,9 @@ const Base64Encoder = (): JSX.Element => {
           fullWidth
           value={input}
           placeholder="Enter text here"
+          multiline
           onChange={e => setInput(e.target.value)}
+          rows={4}
         />
       </div>
 

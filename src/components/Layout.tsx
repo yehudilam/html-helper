@@ -22,7 +22,7 @@ const Layout = (): JSX.Element => {
     <div>
       <Header className="p-2 border border-b mb-2 flex md:block">
         <IconButton
-          className="block md:none"
+          className="block md:hidden"
           onClick={() => setMobileNav(val => !val)}
         >
           <MenuIcon />

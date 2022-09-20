@@ -27,6 +27,7 @@ const Timestamp = (): JSX.Element => {
             href="https://moment.github.io/luxon/#/parsing"
             target="_blank"
             rel="noreferrer"
+            className="ml-2 text-blue-600"
           >Parsing tokens</a></p>
       </div>
 

@@ -46,11 +46,12 @@ const Timezones = (): JSX.Element => {
         </h2>
 
         <p>
-          More on using Luxon timezones:
+          More on using Luxon:
           <a
             href="https://moment.github.io/luxon/#/zones"
             target="_blank"
             rel="noreferrer"
+            className="ml-2 text-blue-600"
           >
             timezones
           </a>
@@ -65,19 +66,20 @@ const Timezones = (): JSX.Element => {
             placeholder="Input Format"
             value={inputFormat}
             onChange={(e) => setInputFormat(e.target.value)}
+            size="small"
           />
         </div>
 
         {/* todo: current zone: */}
       </div>
 
-      <div className="mb-2">
+      <div className="mb-4">
         <p>Time now: {now.toFormat(DATETIME)}</p>
         <p>Your timezone: {now.zoneName}</p>
       </div>
 
-      <table className="mb-2">
-        <thead>
+      <table className="mb-4">
+        <thead className="bg-gray-100">
         <tr>
           <th>Input</th>
           {
@@ -92,10 +94,11 @@ const Timezones = (): JSX.Element => {
               />
             ))
           }
-          <th>
+          <th className="flex items-center">
             <IconButton onClick={addTimezone}>
               <Add />
             </IconButton>
+            <p>Add timezone</p>
           </th>
         </tr>
         </thead>
