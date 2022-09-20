@@ -41,8 +41,12 @@ const Timezones = (): JSX.Element => {
   return (
     <div>
       <div className="mb-2">
+        <h2 className="text-4xl font-semibold mb-2">
+          Timezone convertor
+        </h2>
+
         <p>
-          Luxon timezones:
+          More on using Luxon timezones:
           <a
             href="https://moment.github.io/luxon/#/zones"
             target="_blank"

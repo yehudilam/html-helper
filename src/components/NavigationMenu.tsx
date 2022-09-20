@@ -6,7 +6,7 @@ import {
   ROUTER_PATH_TIMEZONE
 } from "../utils/Router";
 import {Link, useLocation} from "react-router-dom";
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Nav = styled.nav<{

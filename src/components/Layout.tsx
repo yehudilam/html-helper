@@ -27,7 +27,7 @@ const Layout = (): JSX.Element => {
         >
           <MenuIcon />
         </IconButton>
-        <h1 className="text-3xl font-bold">HTML helpers</h1>
+        <h1 className="text-4xl font-bold">HTML helpers</h1>
       </Header>
 
       <MainContent>

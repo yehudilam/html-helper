@@ -66,6 +66,10 @@ const HexToDecimal = (): JSX.Element => {
 
   return (
     <div>
+      <h2 className="text-4xl font-semibold mb-2">
+        Hexadecimal to Decimal convertor
+      </h2>
+
       <div className="mb-2">
         {order === HexDecOrder.HexFirst ? (
           <HexField

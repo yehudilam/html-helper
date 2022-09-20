@@ -15,6 +15,11 @@ const Base64Encoder = (): JSX.Element => {
 
   return (
     <div className="w-4/5">
+
+      <div className="mb-2">
+        <h2 className="text-4xl font-semibold">Base 64 encode tool</h2>
+      </div>
+
       <div className="mb-2">
         <TextField
           fullWidth

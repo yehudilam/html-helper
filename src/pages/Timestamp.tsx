@@ -17,8 +17,12 @@ const Timestamp = (): JSX.Element => {
   return (
     <div>
       <div className="mb-2">
+        <h2 className="text-4xl font-semibold mb-2">
+          Timestamp convertor
+        </h2>
+
         <p>
-          Luxon:
+          More on using Luxon:
           <a
             href="https://moment.github.io/luxon/#/parsing"
             target="_blank"
