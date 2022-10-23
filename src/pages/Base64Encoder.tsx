@@ -1,5 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import {Button, TextField} from "@mui/material";
+import PageHeader from '../components/PageHeader';
 
 const Base64Encoder = (): JSX.Element => {
   const [input, setInput] = useState('');
@@ -16,9 +17,7 @@ const Base64Encoder = (): JSX.Element => {
   return (
     <div className="w-4/5">
 
-      <div className="mb-2">
-        <h2 className="text-4xl font-semibold">Base 64 encode tool</h2>
-      </div>
+      <PageHeader title="Base 64 Encode Tool" />
 
       <div className="mb-2">
         <TextField

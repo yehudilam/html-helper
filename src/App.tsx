@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Router from "./utils/Router";
+import Router from "./router/Router";
 
 function App() {
   return (
-    <div>
+    <div className="h-full w-full">
       <Router/>
     </div>
   );

@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import CachedIcon from '@mui/icons-material/Cached';
-import {Button, IconButton, TextField} from "@mui/material";
+import { Button, IconButton, TextField } from "@mui/material";
+import PageHeader from '../components/PageHeader';
 
 interface HexFieldProps {
   hex: string;
@@ -8,8 +9,8 @@ interface HexFieldProps {
 }
 
 const HexField = ({
-                    hex, setHex
-                  }: HexFieldProps): JSX.Element => {
+  hex, setHex
+}: HexFieldProps): JSX.Element => {
   return (
     <div className="flex items-center">
       <p className="mr-2">Hex: </p>
@@ -28,8 +29,8 @@ interface DecFieldProps {
 }
 
 const DecField = ({
-                    dec, setDec
-                  }: DecFieldProps): JSX.Element => {
+  dec, setDec
+}: DecFieldProps): JSX.Element => {
   return (
     <div className="flex items-center">
       <p className="mr-2">Dec: </p>
@@ -56,9 +57,9 @@ const HexToDecimal = (): JSX.Element => {
   };
 
   const convert = (): void => {
-    if(order === HexDecOrder.HexFirst){
+    if (order === HexDecOrder.HexFirst) {
       setDec(`${parseInt(hex, 16)}`);
-    }else{
+    } else {
 
       setHex(parseInt(dec, 10).toString(16));
     }
@@ -66,9 +67,7 @@ const HexToDecimal = (): JSX.Element => {
 
   return (
     <div>
-      <h2 className="text-4xl font-semibold mb-2">
-        Hexadecimal to Decimal convertor
-      </h2>
+      <PageHeader title="Hexadecimal to Decimal convertor" />
 
       <div className="mb-2">
         {order === HexDecOrder.HexFirst ? (
@@ -86,7 +85,7 @@ const HexToDecimal = (): JSX.Element => {
 
       <div className="mb-2">
         <IconButton onClick={reverseOrder}>
-          <CachedIcon/>
+          <CachedIcon />
         </IconButton>
       </div>
 

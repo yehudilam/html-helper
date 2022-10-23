@@ -7,6 +7,7 @@ import NavigationMenu from "./NavigationMenu";
 
 const MainContent = styled.div`
   display: flex;
+  flex: 1 0 100px;
 `;
 
 const Main = styled.main`
@@ -19,14 +20,15 @@ const Layout = (): JSX.Element => {
   const [mobileNav, setMobileNav] = useState(false);
 
   return (
-    <div>
-      <Header className="p-2 border border-b mb-2 flex md:block">
-        <IconButton
-          className="block md:hidden"
-          onClick={() => setMobileNav(val => !val)}
-        >
-          <MenuIcon />
-        </IconButton>
+    <div className="h-full w-full flex flex-col">
+      <Header className="p-2 border border-b flex">
+        <div className="block md:hidden">
+          <IconButton
+            onClick={() => setMobileNav(val => !val)}
+          >
+            <MenuIcon />
+          </IconButton>
+        </div>
         <h1 className="text-4xl font-bold">HTML helpers</h1>
       </Header>
 

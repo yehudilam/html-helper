@@ -3,6 +3,7 @@ import TimestampRow from "../components/TimestampRow";
 import AddIcon from '@mui/icons-material/Add';
 import {Button} from "@mui/material";
 import {DateTime} from "luxon";
+import PageHeader from '../components/PageHeader';
 
 const Timestamp = (): JSX.Element => {
   const [rows, setRows] = useState<number>(1);
@@ -17,9 +18,7 @@ const Timestamp = (): JSX.Element => {
   return (
     <div>
       <div className="mb-2">
-        <h2 className="text-4xl font-semibold mb-2">
-          Timestamp convertor
-        </h2>
+        <PageHeader title="Timestamp convertor" />
 
         <p>
           More on using Luxon:
@@ -31,13 +30,13 @@ const Timestamp = (): JSX.Element => {
           >Parsing tokens</a></p>
       </div>
 
-      <table className="mb-2">
+      <table className="mb-2 w-full">
         <thead>
           <tr>
-            <th>Input</th>
-            <th>Input format</th>
-            <th>Output format</th>
-            <th>Output</th>
+            <th className="text-left">Input</th>
+            <th className="text-left">Input format</th>
+            <th className="text-left">Output format</th>
+            <th className="text-left">Output</th>
           </tr>
         </thead>
         <tbody>

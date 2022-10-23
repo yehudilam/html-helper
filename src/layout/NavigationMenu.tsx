@@ -4,7 +4,7 @@ import {
   ROUTER_PATH_HEX_TO_DEC,
   ROUTER_PATH_TIMESTAMP,
   ROUTER_PATH_TIMEZONE
-} from "../utils/Router";
+} from "../router/Router";
 import {Link, useLocation} from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
@@ -13,13 +13,17 @@ const Nav = styled.nav<{
   mobileNav: boolean
 }>`
   flex: 0 0 200px;
+  background: #e8f4f8;
+  padding-top: 8px;
 
   @media(max-width: 768px){
-    flex: 0 0 150px;
+    // flex: 0 0 150px;
+    display: ${props => props.mobileNav ? 'block' : 'none'};
   }
 
   @media(max-width: 500px){
-    display: ${props => props.mobileNav ? 'block' : 'none'};
+    // display: ${props => props.mobileNav ? 'block' : 'none'};
+    flex: 1 0 100%;
   }
 `;
 

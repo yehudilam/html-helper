@@ -5,6 +5,7 @@ import {DateTime} from "luxon";
 import TimezoneRow from "../components/timezones/TimezoneRow";
 import TimezoneHeaderZoneField from "../components/timezones/TimezoneHeaderZoneField";
 import {DATETIME} from "../utils/TimestampFormat";
+import PageHeader from '../components/PageHeader';
 
 const Timezones = (): JSX.Element => {
   const [inputFormat, setInputFormat] = useState(DATETIME);
@@ -41,9 +42,7 @@ const Timezones = (): JSX.Element => {
   return (
     <div>
       <div className="mb-2">
-        <h2 className="text-4xl font-semibold mb-2">
-          Timezone convertor
-        </h2>
+        <PageHeader title="Timezone convertor" />
 
         <p>
           More on using Luxon:
