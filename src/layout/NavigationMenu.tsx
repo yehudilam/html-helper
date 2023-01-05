@@ -1,5 +1,6 @@
 import {
   ROUTER_PATH_BASE64,
+  ROUTER_PATH_CLOCK_FACE,
   ROUTER_PATH_CRYPTO,
   ROUTER_PATH_HEX_TO_DEC,
   ROUTER_PATH_TIMESTAMP,
@@ -66,6 +67,9 @@ const NavigationMenu = ({ mobileNav }: NavigationMenuProps): JSX.Element => {
         </NavLi>
         <NavLi className="p-1" selected={pathname === `/${ROUTER_PATH_HEX_TO_DEC}`}>
           <Link to={ROUTER_PATH_HEX_TO_DEC}>Hex to decimal</Link>
+        </NavLi>
+        <NavLi className="p-1" selected={pathname === `/${ROUTER_PATH_CLOCK_FACE}`}>
+          <Link to={ROUTER_PATH_CLOCK_FACE}>Clock face</Link>
         </NavLi>
       </ul>
     </Nav>
