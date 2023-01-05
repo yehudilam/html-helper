@@ -14,24 +14,19 @@ const ClockBase = styled(ClockSqure)`
 `;
 
 const ClockBoundary = styled(ClockBase)`
-  border: 1px solid black;
+  border: 1px solid #333;
   border-radius: 100%;
 `;
 
 const ClockFaceBackground = styled(ClockSqure)`
   border-radius: 100%;
 `;
-// border: 1px solid black;
 
 const ClockMarks = styled.div`
   position: relative;
   width: 100%;
 `;
-// left: 50%;
 
-// height: ${DIMENSION}px;
-  // width: ${DIMENSION}px;
-  // position: absolute;
 const ClockMarkContainer = styled(ClockBase)<ClockMarkProps>`
   transform: rotate(${(props) => props.element * 30}deg);
 `;
@@ -64,30 +59,37 @@ const HandsRect = styled(ClockBase)<HandsReact>`
 
 const HourHand = styled.div`
   height: 40px;
-  width: 5px;
+  width: 7px;
   background-color: black;
   margin-bottom: 30px;
 `;
 
-// const MinuteRect = styled(ClockBase)``;
 const MinuteHand = styled.div`
   height: 65px;
-  width: 3px;
+  width: 4px;
   background-color: black;
   margin-bottom: 50px;
 `;
 
-// const SecondRect = styled(ClockBase)``;
 const SecondHand = styled.div`
-  height: 70px;
-  width: 2px;
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 50px;
 `;
 
-// todo:
-const SecondHandLong = styled.div``;
-const SecondHandTip = styled.div``;
+const SecondHandLong = styled.div`
+  height: 65px;
+  width: 2px;
+  background-color: red;
+`;
+const SecondHandTip = styled.div`
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: red;
+`;
 
 const clockMarksArray = Array.from({ length: 12 }, (_, i) => i + 1);
 
@@ -106,8 +108,6 @@ const ClockFace = () => {
 
   return (
     <div>
-      {/* clock face wrapper */}
-
       {/* clock face */}
       <ClockFaceBackground>
 
@@ -133,7 +133,10 @@ const ClockFace = () => {
             </HandsRect>
 
             <HandsRect rotation={parseInt(now.toFormat("s"), 10) * 6}>
-              <SecondHand />
+              <SecondHand>
+                <SecondHandTip />
+                <SecondHandLong />
+              </SecondHand>
             </HandsRect>
 
           </ClockHands>
