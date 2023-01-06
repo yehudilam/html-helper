@@ -1,15 +1,13 @@
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useState } from 'react';
 import TimestampRow from "../components/TimestampRow";
 import AddIcon from '@mui/icons-material/Add';
-import {Button} from "@mui/material";
-import {DateTime} from "luxon";
+import { Button } from "@mui/material";
+import { DateTime } from "luxon";
 import PageHeader from '../components/PageHeader';
 
 const Timestamp = (): JSX.Element => {
   const [rows, setRows] = useState<number>(1);
   const [convert, setConvert] = useState(0);
-
-  // console.log('timestamp');
 
   const convertTimes = useCallback((): void => {
     setConvert(DateTime.now().toMillis())
@@ -40,12 +38,26 @@ const Timestamp = (): JSX.Element => {
           </tr>
         </thead>
         <tbody>
-          {[...Array(rows).fill('')].map((el, index) => (
-            <TimestampRow
-              key={index}
-              convert={convert}
-            />
-          ))}
+          {[...Array(rows).fill('')].map((el, index) => {
+            if (index === 0) {
+              return (
+                <TimestampRow
+                  key={index}
+                  convert={convert}
+                  defaultInput={DateTime.now().toFormat('yyyy-MM-dd')}
+                  defaultInputFormat={'yyyy-MM-dd'}
+                  defaultOutputFormat={'yyyy-MMM-dd'}
+                />
+              );
+            }
+
+            return (
+              <TimestampRow
+                key={index}
+                convert={convert}
+              />
+            );
+          })}
         </tbody>
       </table>
 

@@ -69,7 +69,7 @@ const NavigationMenu = ({ mobileNav }: NavigationMenuProps): JSX.Element => {
           <Link to={ROUTER_PATH_HEX_TO_DEC}>Hex to decimal</Link>
         </NavLi>
         <NavLi className="p-1" selected={pathname === `/${ROUTER_PATH_CLOCK_FACE}`}>
-          <Link to={ROUTER_PATH_CLOCK_FACE}>Clock face</Link>
+          <Link to={ROUTER_PATH_CLOCK_FACE}>HTML Clock</Link>
         </NavLi>
       </ul>
     </Nav>

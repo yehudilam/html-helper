@@ -4,19 +4,24 @@ import { DateTime } from "luxon";
 
 interface TimestampRowProps {
   convert: number;
+  defaultInput?: string;
+  defaultInputFormat?: string;
+  defaultOutputFormat?: string;
 }
 
 const TimestampRow = ({
-  convert
+  convert,
+  defaultInput = '',
+  defaultInputFormat = 'yyyy-MM-dd',
+  defaultOutputFormat = 'yyyy-MMM-dd',
 }: TimestampRowProps): JSX.Element => {
-  const [input, setInput] = useState<string>('');
-  const [inputFormat, setInputFormat] = useState<string>('yyyy-MM-dd');
-  const [outputFormat, setOutputFormat] = useState<string>('yyyy-MM-dd');
+  const [input, setInput] = useState<string>(defaultInput);
+  const [inputFormat, setInputFormat] = useState<string>(defaultInputFormat);
+  const [outputFormat, setOutputFormat] = useState<string>(defaultOutputFormat);
   const [output, setOutput] = useState('');
 
   useEffect(() => {
     if (input && inputFormat && outputFormat && convert !== 0) {
-
       // todo: catch errors:
       try {
         setOutput(DateTime.fromFormat(input.trim(), inputFormat.trim()).toFormat(outputFormat.trim()));

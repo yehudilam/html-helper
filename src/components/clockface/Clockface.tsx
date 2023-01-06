@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon';
 import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const DIMENSION = 150;
+const DIMENSION = 300;
 
 const ClockSqure = styled.div`
   height: ${DIMENSION}px;
@@ -14,7 +14,7 @@ const ClockBase = styled(ClockSqure)`
 `;
 
 const ClockBoundary = styled(ClockBase)`
-  border: 1px solid #333;
+  border: 2px solid #333;
   border-radius: 100%;
 `;
 
@@ -36,8 +36,8 @@ interface ClockMarkProps {
 }
 
 const ClockMark = styled.div<ClockMarkProps>`
-  height: ${props => props.element % 3 === 0 ? '12px' : '8px'};
-  width: 4px;
+  height: ${props => props.element % 3 === 0 ? '24px' : '16px'};
+  width: ${props => props.element % 3 === 0 ? '6px' : '4px'};
   margin: auto;
   background-color: black;
 `;
@@ -58,17 +58,17 @@ const HandsRect = styled(ClockBase)<HandsReact>`
 `;
 
 const HourHand = styled.div`
-  height: 40px;
+  height: 100px;
   width: 7px;
   background-color: black;
-  margin-bottom: 30px;
+  margin-bottom: 70px;
 `;
 
 const MinuteHand = styled.div`
-  height: 65px;
+  height: 140px;
   width: 4px;
   background-color: black;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 `;
 
 const SecondHand = styled.div`
@@ -76,17 +76,17 @@ const SecondHand = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 120px;
 `;
 
 const SecondHandLong = styled.div`
-  height: 65px;
-  width: 2px;
+  height: 145px;
+  width: 3px;
   background-color: red;
 `;
 const SecondHandTip = styled.div`
-  width: 8px;
-  height: 8px;
+  width: 16px;
+  height: 16px;
   border-radius: 100%;
   background-color: red;
 `;
