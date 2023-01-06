@@ -1,5 +1,4 @@
 import { DateTime } from 'luxon';
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const DIMENSION = 300;
@@ -93,19 +92,11 @@ const SecondHandTip = styled.div`
 
 const clockMarksArray = Array.from({ length: 12 }, (_, i) => i + 1);
 
-const ClockFace = () => {
-  const [now, setNow] = useState(DateTime.now());
+interface ClockFaceProps {
+  now: DateTime;
+}
 
-  const updateTime = () => {
-    setNow(DateTime.now());
-  };
-
-  useEffect(() => {
-    const interval = setInterval(updateTime, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+const ClockFace = ({ now }: ClockFaceProps) => {
   return (
     <div>
       {/* clock face */}
@@ -142,7 +133,6 @@ const ClockFace = () => {
           </ClockHands>
         </ClockMarks>
       </ClockFaceBackground>
-
 
     </div>
   )
