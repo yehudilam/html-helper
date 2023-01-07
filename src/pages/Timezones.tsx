@@ -1,22 +1,27 @@
-import React, {useCallback, useState} from 'react';
-import {Button, IconButton, TextField} from "@mui/material";
-import {Add} from "@mui/icons-material";
-import {DateTime} from "luxon";
+import React, { useCallback, useEffect, useState } from 'react';
+import { Button, IconButton, TextField } from "@mui/material";
+import { Add } from "@mui/icons-material";
+import { DateTime } from "luxon";
 import TimezoneRow from "../components/timezones/TimezoneRow";
 import TimezoneHeaderZoneField from "../components/timezones/TimezoneHeaderZoneField";
-import {DATETIME} from "../utils/TimestampFormat";
+import { DATETIME } from "../utils/TimestampFormat";
 import PageHeader from '../components/PageHeader';
+import styled from 'styled-components';
+
+const AddTimeZone = styled.div`
+  min-width: 202px;
+`;
 
 const Timezones = (): JSX.Element => {
+  const [now] = useState(DateTime.now());
   const [inputFormat, setInputFormat] = useState(DATETIME);
-  const [timezones, setTimezones] = useState<string[]>([]);
+  const [timezones, setTimezones] = useState<string[]>([now.zoneName]);
   const [rows, setRows] = useState(1);
   const [convert, setConvert] = useState(0);
-  const [now] = useState(DateTime.now());
 
   const setTimezoneValue = ({
     value, index
-                            }: {
+  }: {
     value: string, index: number
   }) => {
     setTimezones(prev => {
@@ -79,39 +84,55 @@ const Timezones = (): JSX.Element => {
 
       <table className="mb-4">
         <thead className="bg-gray-100">
-        <tr>
-          <th>Input</th>
-          {
-            timezones.map((timezone: string, index: number) => (
-              <TimezoneHeaderZoneField
-                key={`header-zone-${index}`}
-                timezone={timezone}
-                setTimezone={newValue => setTimezoneValue({
-                  value: newValue,
-                  index,
-                })}
-              />
-            ))
-          }
-          <th className="flex items-center">
-            <IconButton onClick={addTimezone}>
-              <Add />
-            </IconButton>
-            <p>Add timezone</p>
-          </th>
-        </tr>
+          <tr>
+            <th>Input</th>
+            {
+              timezones.map((timezone: string, index: number) => (
+                <TimezoneHeaderZoneField
+                  key={`header-zone-${index}`}
+                  timezone={timezone}
+                  setTimezone={newValue => setTimezoneValue({
+                    value: newValue,
+                    index,
+                  })}
+                />
+              ))
+            }
+            <th>
+              <AddTimeZone className="flex items-center">
+                <IconButton onClick={addTimezone}>
+                  <Add />
+                </IconButton>
+                <p>Add timezone</p>
+              </AddTimeZone>
+            </th>
+          </tr>
         </thead>
         <tbody>
-        {
-          Array(rows).fill('').map((el, index: number) => (
-            <TimezoneRow
-              key={`timezone-${index}`}
-              format={inputFormat}
-              columns={timezones}
-              convert={convert}
-            />
-          ))
-        }
+          {
+            Array(rows).fill('').map((el, index: number) => {
+              if(index === 0){
+                return (
+                  <TimezoneRow
+                    key={`timezone-${index}`}
+                    format={inputFormat}
+                    columns={timezones}
+                    convert={convert}
+                    defaultTimestamp={now.toFormat(inputFormat)}
+                  />
+                );
+              }
+
+              return (
+                <TimezoneRow
+                  key={`timezone-${index}`}
+                  format={inputFormat}
+                  columns={timezones}
+                  convert={convert}
+                />
+              );
+            })
+          }
           <tr>
             <td colSpan={timezones.length + 2}>
               <div className="flex items-center">
@@ -122,7 +143,8 @@ const Timezones = (): JSX.Element => {
 
                 <Button
                   variant="contained"
-                  onClick={convertTimes}>Convert
+                  onClick={convertTimes}>
+                    Convert
                 </Button>
               </div>
             </td>
