@@ -6,10 +6,13 @@ import {
   ROUTER_PATH_TIMESTAMP,
   ROUTER_PATH_TIMEZONE
 } from "../router/Router";
-import {Link, useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
 
+
+// flex: 0 0 150px;
+// display: ${props => props.mobileNav ? 'block' : 'none'};
 const Nav = styled.nav<{
   mobileNav: boolean
 }>`
@@ -18,12 +21,10 @@ const Nav = styled.nav<{
   padding-top: 8px;
 
   @media(max-width: 768px){
-    // flex: 0 0 150px;
     display: ${props => props.mobileNav ? 'block' : 'none'};
   }
 
   @media(max-width: 500px){
-    // display: ${props => props.mobileNav ? 'block' : 'none'};
     flex: 1 0 100%;
   }
 `;
@@ -43,7 +44,7 @@ const NavLi = styled.li<{
   }
 `;
 
-interface NavigationMenuProps{
+interface NavigationMenuProps {
   mobileNav: boolean;
 }
 
