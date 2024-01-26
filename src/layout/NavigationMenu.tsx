@@ -4,7 +4,8 @@ import {
   ROUTER_PATH_CRYPTO,
   ROUTER_PATH_HEX_TO_DEC,
   ROUTER_PATH_TIMESTAMP,
-  ROUTER_PATH_TIMEZONE
+  ROUTER_PATH_TIMEZONE,
+  ROUTER_PATH_PRESET_TIMESTAMP,
 } from "../router/Router";
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
@@ -71,6 +72,9 @@ const NavigationMenu = ({ mobileNav }: NavigationMenuProps): JSX.Element => {
         </NavLi>
         <NavLi className="p-1" selected={pathname === `/${ROUTER_PATH_CLOCK_FACE}`}>
           <Link to={ROUTER_PATH_CLOCK_FACE}>HTML Clock</Link>
+        </NavLi>
+        <NavLi className="p-1" selected={pathname === `/${ROUTER_PATH_PRESET_TIMESTAMP}`}>
+          <Link to={ROUTER_PATH_PRESET_TIMESTAMP}>Preformatted</Link>
         </NavLi>
       </ul>
     </Nav>

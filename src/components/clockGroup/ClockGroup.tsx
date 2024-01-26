@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import ClockFace from "./clockface/Clockface";
 import DigitalClock from "./digitalClock/DigitalClock";
+import useGetNow from "../../hooks/useGetNow";
 
 const ClockGroupContainer = styled.div`
   max-width: 320px;
@@ -19,17 +20,7 @@ interface ClockGroupProps {
 const ClockGroup = ({
   showDigitalClock = true
 }: ClockGroupProps) => {
-  const [now, setNow] = useState(DateTime.now());
-
-  const updateTime = () => {
-    setNow(DateTime.now());
-  }
-
-  useEffect(() => {
-    const interval = setInterval(updateTime, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const { now } = useGetNow();
 
   return (
     <ClockGroupContainer className="flex flex-col justify-center items-center mt-4">
