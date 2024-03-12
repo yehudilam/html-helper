@@ -26,6 +26,9 @@ jobs:
       - name: 'Print dir'
         run: ls
 
+      - name: 'Print google-example-cra-ts content'
+        run: cd google-example-cra-ts && ls -al
+
       - name: 'Install and build'
         run: yarn install && yarn build
 
