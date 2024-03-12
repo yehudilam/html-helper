@@ -14,6 +14,18 @@ jobs:
           repository: 'yehudilam/html-helper'
           path: './'
 
+      - name: 'Create directory'
+        run: mkdir google-example-cra-ts
+
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4
+        with:
+          repository: 'yehudilam/google-example-cra-ts'
+          path: './google-example-cra-ts'
+
+      - name: 'Print dir'
+        run: ls
+
       - name: 'Install and build'
         run: yarn install && yarn build
 
