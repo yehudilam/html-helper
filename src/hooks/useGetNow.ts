@@ -1,24 +1,23 @@
-import { DateTime } from "luxon";
 import { useState, useEffect } from "react";
 
 const useGetNow = ({
-  updateInterval = 1000
+  updateInterval = 1000,
 }: {
-  updateInterval?: number,
+  updateInterval?: number;
 } = {}) => {
-  const [now, setNow] = useState(DateTime.now());
+  const [now, setNow] = useState(new Date());
 
   const updateTime = () => {
-    setNow(DateTime.now());
-  }
+    setNow(new Date());
+  };
 
   useEffect(() => {
     const interval = setInterval(updateTime, updateInterval);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [updateInterval]);
 
-  return { now }
+  return { now };
 };
 
 export default useGetNow;
